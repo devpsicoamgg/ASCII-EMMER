@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emmet</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background-color: #f4f6fb;
+      color: #222;
+      margin: 0;
+      padding: 20px;
+      transition: all 0.3s ease;
+    }
+
+    body.oscuro {
+      background-color: #0d1117;
+      color: #e6edf3;
+    }
+
+    h1 {
+      text-align: center;
+      color: #004aad;
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+
+    body.oscuro h1 {
+      color: #58a6ff;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 11.5px;
+      line-height: 1.3;
+      max-width: 100%;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    th,
+    td {
+      border: 1px solid #d0d7de;
+      padding: 4px 6px;
+      vertical-align: top;
+    }
+
+    th {
+      background: #004aad;
+      color: #fff;
+      font-weight: 600;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    tr:nth-child(even) {
+      background: #f3f6fa;
+    }
+
+    tr:hover {
+      background: #e7f0ff;
+    }
+
+
+    body.oscuro table {
+      border-color: #30363d;
+    }
+
+    body.oscuro th {
+      background: #1f6feb;
+    }
+
+    body.oscuro tr:nth-child(even) {
+      background: #161b22;
+    }
+
+    body.oscuro tr:nth-child(odd) {
+      background: #0d1117;
+    }
+
+    body.oscuro tr:hover {
+      background: #21262d;
+    }
+
+    code {
+      background: #f1f3f6;
+      padding: 1px 3px;
+      border-radius: 3px;
+      font-family: Consolas, monospace;
+    }
+
+    body.oscuro code {
+      background: #1c2128;
+      color: #c9d1d9;
+    }
+
+    ul {
+      margin: 2px 0;
+      padding-left: 15px;
+    }
+
+
+    .modo {
+      position: fixed;
+      top: 12px;
+      right: 12px;
+      background: #004aad;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 6px 10px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+
+    .modo:hover {
+      background: #1f6feb;
+    }
+
+    .volver {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 13px;
+    }
+
+    .volver a {
+      color: #004aad;
+      text-decoration: none;
+      background-color: #e7f0ff;
+      padding: 4px 8px;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+
+    .volver a:hover {
+      background-color: #d0e3ff;
+    }
+
+
+    body.oscuro .volver a {
+      color: #58a6ff;
+      background-color: #21262d;
+    }
+
+    body.oscuro .volver a:hover {
+      background-color: #30363d;
+    }
+  </style>
+</head>
+
+<body>
+
+  <button class="modo" onclick="document.body.classList.toggle('oscuro')">🌓</button>
+
+  <h1>Operadores y símbolos Emmet en VSCode</h1>
+
+  <table>
+    <tr>
+      <th>Símbolo / Token</th>
+      <th>Qué hace</th>
+      <th>Ejemplo Emmet</th>
+      <th>HTML generado</th>
+    </tr>
+
+    <tr>
+      <td style="text-align: center; vertical-align: middle;"><code>!</code></td>
+      <td style="text-align: center; vertical-align: middle;">Plantilla base HTML5</td>
+      <td style="text-align: center; vertical-align: middle;"><code>!</code></td>
+      <td>
+        <div style="font-family: Consolas, monospace; font-size: 11px; line-height: 1.2; text-align: left;">
+          &lt;!DOCTYPE html&gt;<br>
+          &lt;html lang="es"&gt;<br>
+          &nbsp;&nbsp;&lt;head&gt;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&lt;meta charset="UTF-8"&gt;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Document&lt;/title&gt;<br>
+          &nbsp;&nbsp;&lt;/head&gt;<br>
+          &nbsp;&nbsp;&lt;body&gt;<br>
+          &nbsp;&nbsp;&lt;/body&gt;<br>
+          &lt;/html&gt;
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="text-align: center; vertical-align: middle;"><code>&gt;</code></td>
+      <td style="text-align: center; vertical-align: middle;">Hijo directo (child)</td>
+      <td style="text-align: center; vertical-align: middle;"><code>div&gt;ul&gt;li</code></td>
+      <td>
+        <code>
+    &lt;div&gt;<br>
+    &nbsp;&nbsp;&lt;ul&gt;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;/li&gt;<br>
+    &nbsp;&nbsp;&lt;/ul&gt;<br>
+    &lt;/div&gt;
+  </code>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="text-align: center; vertical-align: middle;"><code>+</code></td>
+      <td style="text-align: center; vertical-align: middle;">Hermano (sibling)</td>
+      <td style="text-align: center; vertical-align: middle;"><code>h1+p</code></td>
+      <td>
+        <code>
+    &lt;h1&gt;&lt;/h1&gt;<br>
+    &lt;p&gt;&lt;/p&gt;
+  </code>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="text-align: center; vertical-align: middle;"><code>^</code></td>
+      <td style="text-align: center; vertical-align: middle;">Subir nivel</td>
+      <td style="text-align: center; vertical-align: middle;"><code>div&gt;ul&gt;li^p</code></td>
+      <td>
+        <code>
+    &lt;div&gt;<br>
+    &nbsp;&nbsp;&lt;ul&gt;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;/li&gt;<br>
+    &nbsp;&nbsp;&lt;/ul&gt;<br>
+    &nbsp;&nbsp;&lt;p&gt;&lt;/p&gt;<br>
+    &lt;/div&gt;
+  </code>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="text-align: center; vertical-align: middle;"><code>*</code></td>
+      <td style="text-align: center; vertical-align: middle;">Repetir</td>
+      <td style="text-align: center; vertical-align: middle;"><code>li*3</code></td>
+      <td>
+        <code>
+    &nbsp;&lt;li&gt;&lt;/li&gt;<br>
+    &nbsp;&nbsp;&lt;li&gt;&lt;/li&gt;<br>
+    &nbsp;&nbsp;&lt;li&gt;&lt;/li&gt;
+  </code>
+      </td>
+    </tr>
+
+    <tr>
+      <td style="text-align: center; vertical-align: middle;"><code>()</code></td>
+      <td style="text-align: center; vertical-align: middle;">Agrupar</td>
+      <td style="text-align: center; vertical-align: middle;"><code>div&gt;(ul&gt;li*3)</code></td>
+<td>
+  <code>
+    &lt;div&gt;<br>
+    &nbsp;&nbsp;&lt;ul&gt;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;/li&gt;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;/li&gt;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;/li&gt;<br>
+    &nbsp;&nbsp;&lt;/ul&gt;<br>
+    &lt;/div&gt;
+  </code>
+</td>
+    </tr>
+
+    <tr>
+      <td style="text-align: center; vertical-align: middle;"><code>.</code></td>
+      <td style="text-align: center; vertical-align: middle;">Clase</td>
+      <td style="text-align: center; vertical-align: middle;"><code>div.card</code></td>
+      <td><code>&lt;div class="card"&gt;&lt;/div&gt;</code></td>
+    </tr>
+
+    <tr>
+      <td style="text-align: center; vertical-align: middle;"><code>#</code></td>
+      <td style="text-align: center; vertical-align: middle;">ID</td>
+      <td style="text-align: center; vertical-align: middle;"><code>div#app</code></td>
+      <td><code>&lt;div id="app"&gt;&lt;/div&gt;</code></td>
+    </tr>
+
+    <tr>
+      <td style="text-align: center; vertical-align: middle;"><code>[]</code></td>
+      <td style="text-align: center; vertical-align: middle;">Atributos</td>
+      <td style="text-align: center; vertical-align: middle;"><code>a[href="https://"]</code></td>
+      <td><code>&lt;a href="https://"&gt;&lt;/a&gt;</code></td>
+    </tr>
+
+    <tr>
+      <td style="text-align: center; vertical-align: middle;"><code>{}</code></td>
+      <td style="text-align: center; vertical-align: middle;">Texto literal</td>
+      <td style="text-align: center; vertical-align: middle;"><code>p{Hola mundo}</code></td>
+      <td><code>&lt;p&gt;Hola mundo&lt;/p&gt;</code></td>
+    </tr>
+
+    <tr>
+      <td style="text-align: center; vertical-align: middle;"><code>$</code></td>
+      <td style="text-align: center; vertical-align: middle;">Numeración automática</td>
+      <td style="text-align: center; vertical-align: middle;"><code>li.item$*3</code></td>
+      <td><code>&lt;li class="item1"&gt;...&lt;/li&gt;</code></td>
+    </tr>
+
+    <tr>
+      <td style="text-align: center; vertical-align: middle;"><code>\</code></td>
+      <td style="text-align: center; vertical-align: middle;">Escapar caracteres</td>
+      <td style="text-align: center; vertical-align: middle;"><code>p{\$100}</code></td>
+      <td><code>&lt;p&gt;$100&lt;/p&gt;</code></td>
+    </tr>
+  </table>
+
+  <p class="volver">
+    <a href="index.html">← Index </a>
+  </p>
+
+</body>
+
+</html>
