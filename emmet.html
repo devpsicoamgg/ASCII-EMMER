@@ -148,6 +148,41 @@
     body.oscuro .volver a:hover {
       background-color: #30363d;
     }
+
+    .tabla-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+@media (max-width: 768px) {
+  table {
+    font-size: 10.5px;
+  }
+
+  th, td {
+    padding: 6px 8px;
+  }
+
+  h1 {
+    font-size: 16px;
+  }
+
+  .modo {
+    top: 10px;
+    right: 10px;
+    padding: 5px 8px;
+    font-size: 11px;
+  }
+
+  .volver {
+    font-size: 12px;
+    margin-top: 16px;
+  }
+
+  .volver a {
+    padding: 4px 6px;
+  }
+}
   </style>
 </head>
 
@@ -156,7 +191,7 @@
   <button class="modo" onclick="document.body.classList.toggle('oscuro')">🌓</button>
 
   <h1>Operadores y símbolos Emmet en VSCode</h1>
-
+<div class="tabla-responsive">
   <table>
     <tr>
       <th>Símbolo / Token</th>
@@ -300,6 +335,8 @@
       <td><code>&lt;p&gt;$100&lt;/p&gt;</code></td>
     </tr>
   </table>
+  </div>
+
 
   <p class="volver">
     <a href="index.html">← Index </a>
